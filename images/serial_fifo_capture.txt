@@ -1,0 +1,29 @@
+ECE 520/L - Custom AXI-Lite FIFO IP - Andres Riano
+FPGA_REV  : 0x52000004 OK
+CONFIG    : 0x01002010 OK
+THRESHOLD : 0x001F0001 OK
+STATUS    : 0x00000005 OK
+
+Pushing 5 words:
+  push 0x1111  (count now 1)
+  push 0x2222  (count now 2)
+  push 0x3333  (count now 3)
+  push 0x4444  (count now 4)
+  push 0x5555  (count now 5)
+DATA_COUNT: 0x00000005 OK
+
+Popping them back:
+  pop  0x1111  OK
+  pop  0x2222  OK
+  pop  0x3333  OK
+  pop  0x4444  OK
+  pop  0x5555  OK
+STATUS    : 0x00000015 OK
+
+Filling to 32, then one extra write:
+DATA_COUNT: 0x00000020 OK
+STATUS    : 0x0000000A OK
+after RST : 0x00000000 OK
+
+ALL PASS (0 errors)
+End of FIFO Test

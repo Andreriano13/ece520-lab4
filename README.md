@@ -42,7 +42,7 @@ The PL runs on the PS clock FCLK_CLK0 = **50 MHz**.
 | 0x04 | `slv_reg1` | R/W | B in bits [15:0] (upper 16 bits read as 0) |
 | 0x08 | `slv_reg2` | RO | product A × B, 32 bits (software writes ignored) |
 
-The multiplier maps onto **one DSP48E1** slice (utilization report). Timing met with +12.85 ns slack at 50 MHz.
+The multiplier maps onto **one DSP48E1** slice (utilization report). Final design (both IPs + BRAM): 2,100 LUTs (12%), 16.5 BRAM tiles, 1 DSP; timing met with +9.84 ns slack at 50 MHz.
 
 ## Part 6: FIFO IP register map
 
@@ -92,13 +92,15 @@ The multiplier maps onto **one DSP48E1** slice (utilization report). Timing met 
 
 **FIFO IP simulation:** 26 checks, 0 errors: reset values, push 5 / pop 5 in order, pop-when-empty ignored, RD_REQ write of 0 ignored, software reset, fill to 32 with the 33rd write ignored, writes to read-only registers have no effect.
 
-**FIFO IP on the board:** see `images/serial_fifo.png`.
+**FIFO IP on the board:** ALL PASS: revision, config and threshold registers, 5 words pushed and popped in order, full + almost_full at 32, software reset.
+![fifo serial](images/serial_fifo.png)
 
 ## Notes (things that went wrong and how they were fixed)
 
 - The first `.xsa` export after adding the BRAM still contained the **old bitstream** (synthesis had not re-run). Always wait for "Bitstream Generation successfully completed" before exporting.
 - **Vitis 2023.2 Unified:** the generated launch configuration pointed the PS init script at `mult_16_bit.tcl` instead of `ps7_init.tcl` ("invalid command name ps7_init"). Fixed in `_ide/.theia/launch.json`. A folder opened once by Vitis Classic cannot be used as a Unified workspace.
 - After re-packaging an IP, the block design locks it until **Upgrade IP** is run.
+- If `xsdb` reports "Cannot halt processor core", the hardware server or serial terminal is stale: close the old terminal, rerun `run.tcl` (it resets the system first).
 
 ## AI use (citation)
 
