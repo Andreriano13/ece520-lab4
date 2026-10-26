@@ -1,0 +1,13 @@
+start 18:21:05
+opened
+Initializing...
+init:done
+Zybo Z7-10 Rev. B Demo Image
+
+Start of Multiplier Test
+A: 8
+B: 8
+P: 64
+End of Multiplier Test
+
+end

@@ -1,0 +1,10 @@
+# Full Vivado / Vitis projects stay local (lab instructions: do not submit the entire Vivado project).
+# Everything needed to rebuild is in src/, sim/, ip_repo/, sw/ and scripts/; demo/ has the built files.
+Lab4_AXILiteIP/
+mult_soc_AR/
+*.jou
+*.log
+*.str
+.Xil/
+NA/
+ip_repo/edit_*
