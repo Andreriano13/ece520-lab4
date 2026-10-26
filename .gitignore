@@ -8,3 +8,10 @@ mult_soc_AR/
 .Xil/
 NA/
 ip_repo/edit_*
+# xsdb loadhw unpacks the .xsa here at run time
+demo/drivers/
+demo/*.mmi
+demo/ps7_init.c
+demo/ps7_init.h
+demo/ps7_init.html
+demo/ps7_init_gpl.*
