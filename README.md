@@ -109,4 +109,4 @@ Per the ECE 520 syllabus, outside help is cited. **Claude (Anthropic)** was used
 - Multiplier AXI wrapper edits: the code given in the lab instructions, typed by me.
 - `tasks_bram_test.c`: Claude skeleton; I filled the product read and the BRAM address (`k * 4`); Claude supplied the read-back line and print arguments.
 - `sc_fifo.v`: my Lab 3 design, unchanged.
-- `sc_fifo_axi` user logic (pulses, reset, FIFO instance, read capture, read mux): drafted by Claude; I answered the read-request pulse condition. `tb_sc_fifo_axi.v`, `part6_fifo_test.c`, `demo/run.tcl` and this README: drafted by Claude, reviewed by me.
+- `sc_fifo_axi` user logic (pulses, reset, FIFO instance, read capture, read mux): drafted by Claude; I answered the read-request pulse condition. `tb_sc_fifo_axi.v`, `part6_fifo_test.c`, `demo/run.tcl` 
